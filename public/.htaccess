@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirect to HTTPS (opcional, mas recomendado)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Custom routes mapping (mesmo comportamento do server.js)
+RewriteRule ^quem-somos/?$ about.html [L]
+RewriteRule ^fale-conosco/?$ contact.html [L]
